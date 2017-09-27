@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HOTEL RESERVATION SYSTEM</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- A <meta> viewport element gives the browser instructions on how to control the page's dimensions and scaling.
+The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser. -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+<style>
+.container{
+	padding:80px 120px;
+	}
+.person {
+      border: 10px solid transparent;
+      margin-bottom: 25px;
+      width: 80%;
+      height: 80%;
+      opacity: 0.7;
+  }
+  .person:hover {
+      border-color: #f1f1f1;
+  }
+
+
+
+.rFloat {
+    float: right;
+    padding-top: 26px;
+	color:white;
+}
+
+
+.rFloat li.secondaryLink.right-link a.c2c {
+    font-size: 12px;
+	text-decoration:none;
+    font-family:Droid serif, Helvetica, Arial, sans-serif !important;
+}
+.rFloat li.secondaryLink.right-link .c2c{
+    border-right: 1px solid #543a15;
+	border-radius:5px;
+}
+
+.rFloat li {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 10px;
+}
+
+li a.c2c {
+    font-size: 14px;
+    color: #fff;
+	
+    text-transform: uppercase;
+    font-family: Droid serif, Helvetica, Arial, sans-serif !important;
+    display: block;
+}
+
+.rFloat li a.c2c {
+    background-color: #000;
+    padding: 4px 5px 6px;
+    border-radius: 2px;
+    line-height: 16px;
+    font-weight: 500;
+    font-size: 15px;
+    vertical-align: top;
+    font-family: Droid serif, Helvetica, Arial, sans-serif !important;
+}
+
+.rFloat li .c2c img {
+    width: 35px;
+    margin: 0 10px;
+
+}
+.rFloat li .c2c .click-call-icon {
+   border-right: 1px solid #fff;
+   height:35px;
+   display: inline-block;
+}
+
+.rFloat li .c2c span {
+    vertical-align: bottom;
+    color: #fff;
+    font-family: Droid serif, Helvetica, Arial, sans-serif !important;
+}
+
+.rFloat {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    
+  }
+
+</style>
+
+<div class="rFloat">
+<li class="secondaryLink desktop-view right-link" >
+<a class="c2c" href="javascript:Call()">
+<!-- <span>Chat/Call</span><img src="/tb3/media/img/dyn/tj_tj_1455430292356.png">-->
+<!--<span class="click-call-icon"><img src="call.jpg"></span></a>-->
+</li>
+</ul>
+</div>    <!-- Custom Header HTML End: "' */ -->
+
+</head>
+
+<body>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+	<ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+	<li data-target="#myCarousel" data-slide-to="3"></li>
+<li data-target="#myCarousel" data-slide-to="4"></li>
+
+
+    </ol>
+ <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+      	<div class="row">
+      		<div class="col-sm-12">
+        <img src="himage1.jpg" alt="New York" width="100%" height="100%">
+        	</div>
+        </div>
+       </div>
+       
+       <div class="item">
+       		<div class="row">
+      			<div class="col-sm-12">
+        		<img src="himage2.jpg" alt="Chicago" width="100%" height="100%">
+        		</div>
+        	</div>
+       </div>
+       
+        <div class="item">
+       		<div class="row">
+      			<div class="col-sm-12">
+        		<img src="himage3.jpg" alt="Chicago" width="100%" height="100%">
+        		</div>
+        	</div>
+       </div>
+<div class="item">
+       		<div class="row">
+      			<div class="col-sm-12">
+        		<img src="himage4.jpg" alt="Chicago" width="100%" height="100%">
+        		</div>
+        	</div>
+       </div>
+<div class="item">
+       		<div class="row">
+      			<div class="col-sm-12">
+        		<img src="himage5.jpg" alt="Chicago" width="100%" height="100%">
+        		</div>
+        	</div>
+       </div>
+
+    </div>
+    
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+
+<!-- this part of the code is for stagnant search part-->
+<div class="rFloat">
+<li class="secondaryLink desktop-view right-link" >
+<a class="c2c" href="javascript:Call()">
+<!-- <span>Chat/Call</span><img src="/tb3/media/img/dyn/tj_tj_1455430292356.png">-->
+<span class="click-call-icon"><img src="https://www.yourreservation.net/tb3/media/img/dyn/tj_tj_1456489912647.png"></span><img src="https://www.yourreservation.net/tb3/media/img/dyn/tj_tj_1456489948379.png"></a>
+</li>
+</ul>
+</div>    <!-- Custom Header HTML End: "' */ -->
+
+
+<main id="abe-main"  class="abe-search-page">
+        <div class="container-fluid" >
+
+<script type="text/javascript">
+
+var abe_currentPage = "home_page";
+var abe_referrer = "";
+var abe_windowWidth = window.innerWidth;
+var abe_windowHeight = window.innerHeight;
+var abe_windowSize = abe_windowWidth + 'x' + abe_windowHeight;
+
+</script>
+<div class="text-center" style="position:absolute;top:41%;border-radius:10 px;width:70%;left:15%;background-color:rgba(255,182,193,0.5)
+">
+<div class="abe-logo hidden-xs">
+  <img src="">
+    </div>
+        <div class="row">
+        <div class="abe-search-panel abe-sp-center col-xs-offset-0-5 col-xs-11 col-sm-offset-1 col-sm-10 col-md-offset-0-5 col-md-11 col-lg-11" >
+            <form id="js-abe-search-form" method="get" action="">
+<!-- action yet to be added-->
+
+
+ <div class="row abe-search-form">
+  <div class="col-xs-12 col-md-11">
+   <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+     <div class="form-group">
+    <input type="hidden" name="hotelCode" value="" id="js-abe-hybrid-hotelcode"/>
+   
+   
+	<!--<script> 
+    $(function(){
+      $("#hotelname").load("suggest_c.html"); 
+    });
+    </script>-->
+<style>
+		
+		.result{
+					border:none;
+					background-color:white;
+					display:block;
+				
+				}
+				.result:hover{
+					background-color:white;
+					display:block;
+				}
+		</style>
+		<script>
+			var Suggest=function(){
+			
+			  temp=this;
+			  this.timer=null;
+			  this.search=null;
+			  this.container=null;
+			  this.xhr=new XMLHttpRequest();
+			  this.getData=function(){
+			  
+					if(this.timer){
+					
+					//clear timeout
+					clearTimeout(this.timer);
+					}
+			    this.timer=setTimeout(this.sendTerm,1000);
+			  
+			  }
+			this.sendTerm=function(){  
+			
+					temp.search=document.getElementById("hotel");
+					temp.container=document.getElementById("container");
+					temp.container.innerHTML="";
+					console.log(temp.search.value);
+					if(temp.search.value==""){
+						console.log("empty")
+					}
+					else{
+					url="suggest_c.php?term="+temp.search.value;
+						if(localStorage.getItem(url)){
+						//fetch from cache
+							
+							var r=JSON.parse((localStorage.getItem(url)))
+							temp.populateData(r);
+						}
+					
+						else{
+						temp.xhr.onreadystatechange=temp.fetchData;
+						temp.xhr.open("GET",url,true);
+						temp.xhr.send();
+						}
+					}
+					
+					//console.log(this);
+			
+			}
+			
+			this.fetchData=function(){
+			
+				if(this.readyState==4 && this.status==200){
+					console.log(this.responseText);
+					localStorage.setItem(this.responseURL,this.responseText);
+				     var res=JSON.parse(this.responseText);
+					 temp.populateData(res);
+				
+				}			
+					//console.log(this);
+			}
+			this.populateData=function (r){
+				temp.container=document.getElementById("container");
+				for(var i=0;i<r.length;i++){
+						var d=document.createElement("div")
+						d.innerHTML=r[i]
+						d.className="result"
+						d.onclick=temp.setData;
+						temp.container.appendChild(d);
+				
+				}
+			
+			
+			}
+			
+			this.setData=function(e){
+			
+					temp.search.value=e.target.innerHTML;
+					temp.container.style.display="none";
+			
+			
+			}
+			
+			
+			}	
+			
+			obj=new Suggest();
+			
+			
+			function redirect()
+           {
+           var b = document.getElementById('hotel').value,
+              url = 'displayrooms.html?name=' + encodeURIComponent(b);
+              document.location.href = url;
+          }
+			  
+		</script>
+	</head>
+	<body>
+		<table border="0" cellpadding="0">
+			
+			 <input type="text" id="hotel" value="" class="form-control" id="js-abe-search" title="Location" placeholder="Hotel name" onkeyup="obj.getData()"/>
+			<tr><td></td><td><div id="container"></div></td></tr>
+		
+		
+		</table>
+		
+	</body>
+
+
+</div>
+</div>
+
+ <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8">
+  <div class="row">
+   <div class="col-sm-6 col-md-3 col-xs-12">
+    <div class="has-feedback has-feedback-right form-group">
+    <label class="sr-only" for="abe-search-arrival">Arrival</label>
+<input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="date"/>        
+    <span class="form-control-feedback">
+        <span class="abe-icon abe-icon-calendar"></span>
+    </span>
+</div>
+</div> 
+
+<div class="col-sm-6 col-md-3 col-xs-12">
+<div class="has-feedback has-feedback-right form-group">
+    <label class="sr-only" for="abe-search-departure">Departure</label>
+<input class="form-control" id="date" name="date" placeholder="DD/MM/YYY" type="date"/>    
+    <span class="form-control-feedback">
+        <span class="abe-icon abe-icon-calendar"></span>
+    </span>
+</div>
+</div>
+
+ <div class="col-sm-6 col-md-3 form-group hidden-xs">
+<label class="sr-only" for="abe-search-adults">Number of Adults:</label>
+<select class="form-control selectpicker js-abe-search-adults" id="abe-search-adults" name="a">
+            <option value="1" selected="selected">1 Adult</option>
+            <option value="2">2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+    </select>
+</div>
+
+ <div class="col-sm-6 col-md-3 form-group hidden-xs">
+<label class="sr-only" for="abe-search-children">Number of Children:</label>
+<select class="form-control selectpicker js-abe-search-children" id="abe-search-children" name="c">
+            <option value="0" selected="selected">No children</option>
+            <option value="1">1 Child</option>
+            <option value="2">2 Children</option>
+            <option value="3">3 Children</option>
+            <option value="4">4 Children</option>
+    </select>
+</div>
+
+ </div>		</div>
+
+
+
+<div class="visible-xs-block">
+ <div class="col-xs-12 form-group">
+<label class="sr-only" for="abe-search-adults-mobile">Number of Adults:</label>
+<div class="input-group">
+    <span class="input-group-btn">
+        <button class="btn btn-default js-abe-remove-adult-button disabled" type="button">
+            <span class="abe-icon abe-icon-minus"></span>
+        </button>
+    </span>
+    <input class="form-control js-abe-search-adults-mobile" id="abe-search-adults-mobile" type="text" value="1 Adult" data-value="1">
+    <span class="input-group-btn">
+        <button class="btn btn-default js-abe-add-adult-button" type="button">
+            <span class="abe-icon abe-icon-plus"></span>
+        </button>
+    </span>
+</div>
+</div>
+
+<div class="col-xs-12 form-group">
+<label class="sr-only" for="abe-search-children-mobile">Number of Children:</label>
+<div class="input-group">
+    <span class="input-group-btn">
+        <button class="btn btn-default js-abe-remove-child-button disabled" type="button">
+            <span class="abe-icon abe-icon-minus"></span>
+        </button>
+    </span>
+    <input class="form-control js-abe-search-children-mobile" id="abe-search-children-mobile" type="text" value="No children" data-value="0">
+    <span class="input-group-btn">
+        <button class="btn btn-default js-abe-add-child-button" type="button">
+         <span class="abe-icon abe-icon-plus"></span>
+        </button>
+    </span>
+</div>
+</div>      </div>
+
+
+<div class="col-xs-12 abe-child-ages js-abe-child-ages text-left" style="display:none">
+  <div class="row">
+   <div class="col-xs-12 col-md-5 col-lg-5">
+    <label>Please enter the age of each child you are booking for:</label>
+             </div>
+<div class="col-xs-12 col-md-7 col-lg-7">
+<div class="row">
+  <div class="col-xs-12 col-sm-3 form-group js-abe-child-age-1" style="display:none">
+     <div class="input-group">
+                <span class="input-group-addon">
+                    <label for="abe-child-age-1">1:</label>
+                </span>
+                <select name="ca[]" class="form-control selectpicker" id="abe-child-age-1">
+                    <option value="">-</option>
+                                            <option value="0">&lt;1</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                    </select>
+           </div>
+        </div>
+ <div class="col-xs-12 col-sm-3 form-group js-abe-child-age-2" style="display:none">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <label for="abe-child-age-2">2:</label>
+                </span>
+                <select name="ca[]" class="form-control selectpicker" id="abe-child-age-2">
+                    <option value="">-</option>
+                                            <option value="0">&lt;1</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                    </select>
+            </div>
+        </div>
+
+<div class="col-xs-12 col-sm-3 form-group js-abe-child-age-3" style="display:none">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <label for="abe-child-age-3">3:</label>
+                </span>
+                <select name="ca[]" class="form-control selectpicker" id="abe-child-age-3">
+                    <option value="">-</option>
+                                            <option value="0">&lt;1</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                    </select>
+            </div>
+        </div>
+<div class="col-xs-12 col-sm-3 form-group js-abe-child-age-4" style="display:none">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <label for="abe-child-age-4">4:</label>
+                </span>
+                <select name="ca[]" class="form-control selectpicker" id="abe-child-age-4">
+                    <option value="">-</option>
+                                            <option value="0">&lt;1</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                    </select>
+            </div>
+        </div>
+
+</div>
+</div>
+
+</div>  </div>
+
+<div class="col-xs-12 js-abe-advanced-search abe-advanced-search" style="display:none">
+   <div class="row">
+ <div class="col-xs-12 col-sm-4 col-md-3 ">
+ <label>Special rate? Enter your promo code here:</label>
+    </div>
+
+ <div class="col-xs-12 col-md-9 col-sm-8 ">
+   <div class="row">
+	<div class="col-xs-12 col-sm-6 form-group">
+       <input class="form-control" placeholder="IATA Number" type="text" name="i" value="">
+               </div>
+                                                                <div class="col-xs-12 col-sm-6 form-group">
+  <input class="form-control" placeholder="" type="text" name="rac" value="">
+                 </div>
+
+
+
+
+
+</div>
+</div>
+
+
+
+</div>		</div>
+
+</div>
+</div>
+
+
+
+<div class='col-xs-12 col-md-1 text-center'>
+ <button class='btn btn-primary abe-search-button' type='button' onclick="redirect()">
+  <span class='abe-icon abe-icon-search hidden-md hidden-lg' "></span>
+ Search                        </button>
+         </div>
+</div>
+ <a class='js-abe-show-advanced-search abe-show-advanced-search-index'>Promo Code</a>
+                  </form>
+ </div>
+
+</div>
+</div>
+
+	</div>
+
+</main>
+
+</body>
+</html>

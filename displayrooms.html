@@ -1,0 +1,204 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- A <meta> viewport element gives the browser instructions on how to control the page's dimensions and scaling.
+The width=device-width part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+The initial-scale=1.0 part sets the initial zoom level when the page is first loaded by the browser. -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+<script>
+window.onload = init;
+ function init() {
+    var url = document.location.href;
+        params = url.split('=')[1];
+    name = params;
+   xhr=new XMLHttpRequest();
+   xhr.onreadystatechange=displaydetails;
+   xhr.open("GET", "download.php?name="+name,true);
+   xhr.open("GET", "giveallrooms.php?name="+name,true);
+  xhr.send();
+}
+function displaydetails()
+{   
+  	if(xhr.readyState == 4 && xhr.status == 200)
+	{  
+		details = xhr.responseText.split(',');
+		 //alert(details[0]);
+		   hotel_image=document.createElement("img");
+		   hotel_image.className="hotel_image";
+		   hotel_image.style.width="100%";
+		   hotel_image.style.height="250";
+		   hotel_image.src=details[4];
+		   main=document.getElementById("page");
+		   main.appendChild(hotel_image);
+		   var rooms=["Single Bed Room","Double Bed Room","Executive Suite"];
+		   var ids=["single","twin","suite"];
+		   for(i=0;i<3;i++)
+		   {
+		   container=document.createElement("div");
+		   container.className="container";
+		   left=document.createElement("div");
+		   left.className="left";
+		   right=document.createElement("div");
+		   right.className="right";
+		   center=document.createElement("div");
+		   center.className="center";
+		   roomimage=document.createElement("img");
+		   roomimage.className="hotel_image";
+		   roomimage.style.width="250";
+		   roomimage.style.height="250";
+		   roomimage.src="room"+(i+1)+".jpg";
+		   left.appendChild(roomimage);
+		   container.appendChild(left);  
+		   
+		   
+		   var para1 = document.createElement("P"); 
+           para1.className="para1";	
+           var t = document.createTextNode(rooms[i]);       
+           para1.appendChild(t); 
+		   center.appendChild(para1); 
+		   
+		   
+		   var para2 = document.createElement("P"); 
+           para2.className="para2";	
+           var t = document.createTextNode("Price : Rs "+details[i+1]);       
+           para2.appendChild(t);
+		   center.appendChild(para2); 
+		   container.appendChild(center);
+		   
+		   var btn = document.createElement("BUTTON"); 
+           btn.className="button"+(i+1);
+           btn.id=ids[i];		   
+           var t = document.createTextNode("Reserve");       
+           btn.appendChild(t); 
+		   btn.onclick=reserve;
+           right.appendChild(btn); 
+		   container.appendChild(right);
+		   main=document.getElementById("page");
+		   main.appendChild(container);
+		   var br = document.createElement('br');
+		    page.appendChild(br);
+			
+		   page.appendChild(container);
+			  }
+		
+    }
+}
+
+function reserve()
+{
+  xhr=new XMLHttpRequest();
+  xhr.onreadystatechange=reservestatus;
+   type=document.getElementById("single").id;
+    xhr.open("GET", "dobooking.php?hotelname="+details[0]+"&roomtype="+type,true);
+    xhr.send();
+	}
+  
+ function reservestatus()
+ {
+  if(xhr.readyState == 4 && xhr.status == 200)
+	{  
+		details = xhr.responseText;
+        alert(details);
+    }
+}	
+	 
+</script>
+ 
+ 
+ 
+
+<style>
+body {background-color:black;}
+.button1, .button2, .button3 {background-color: orange;
+         position:relative;
+		 left:30%;
+		 top:40%;
+          width:100px;
+          color: white;
+          border: none;
+          display: inline-block;
+          padding: 9px 18px;
+          text-align: center;
+          font-size: 15px;
+          cursor: pointer;
+          }
+.button1:hover, .button2.hover, .button3.hover {background-color: black;
+         position:relative;
+		 left:30%;
+		 top:40%;
+          width:100px;
+          color: white;
+          border: none;
+          display: inline-block;
+          padding: 9px 18px;
+          text-align: center;
+          font-size: 15px;
+          cursor: pointer;}
+
+.para1 { font-size:50px;
+        position:relative;
+		 left:40px;}
+.para2 { font-size:30px;
+           position:relative;
+		 left:40px;}
+.container {
+    position:relative;
+    width:90%;
+	margin:20px;
+	background-color:#D3D3D3;
+}
+.left {
+    float:left;
+	position:relative;
+	left:50;
+	height:250;
+	margin-right:10px;
+}
+
+.center {
+    position:relative;
+	left:60;
+    display: inline-block;
+	height:250;
+	background-color:transparent;
+	margin-left:10px;
+	margin-right:10px;
+}
+
+.right {
+    position:relative;
+	right:50;
+    float:right;
+	width:200;
+	height:250;
+	margin-left:10px;
+	background-color:transparent;
+}
+   .header {
+	 background-color:brown;
+	 height: 70px;
+	 width:100%;
+	 }
+div.menu {position:relative;
+          top:18px;
+           left:80%;
+           }
+div.menu a{  color: white;
+              font-size:20px;
+              text-decoration:none;
+             }
+</style>
+</head>
+<body>
+<div class="header">
+<div class="menu">
+<a href = "home.html"> HOME </a>
+</div>
+</div>
+<div id="page"></div>
+</body>
+</html>
